@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Concourse — Smart Apply Tracker",
+  "version": "1.0.0",
+  "description": "Detects when you submit a job application and saves it to your local Concourse tracker with one click.",
+  "permissions": ["storage", "alarms", "notifications", "tabs"],
+  "host_permissions": ["http://localhost:4000/*", "http://127.0.0.1:4000/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Concourse" },
+  "icons": { "48": "icon48.png", "128": "icon128.png" },
+  "content_scripts": [
+    { "matches": ["http://*/*", "https://*/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ]
+}
